@@ -1,6 +1,7 @@
 import sys
 import re
 from datetime import datetime
+import random
 
 def is_code_section_present(string):
     pattern = r'```'
@@ -33,7 +34,7 @@ def convert_question_to_sql(markdown):
 
     # Générer la requête SQL pour la question
     question_sql = f"INSERT INTO public.question (id, is_reported, last_update, statement, timer, skill_level_id, skill_theme_id) VALUES\n"
-    question_sql += f"('{question_id}', TRUE, '{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}', '{question_statement}', 45, 1, 1);\n\n"
+    question_sql += f"('{question_id}', TRUE, '{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}', '{question_statement}', 45, {random.randrange(1,5)}, 1);\n\n"
 
     # Extraire les réponses du Markdown
     answers = re.findall(r'- \[([x ])\] (.+)', markdown)
