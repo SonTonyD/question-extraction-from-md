@@ -20,9 +20,9 @@ def double_quotes(string):
             doubled_string += char
     return doubled_string
 
-def convert_question_to_sql(markdown):
+def convert_question_to_sql(question):
     # Extraire la question du Markdown
-    question_match = re.search(r'#### (Q\d+)\. (.+)', markdown)
+    question_match = re.search(r'#### (Q\d+)\. (.+)', question)
     if not question_match:
         print("Erreur : Impossible de trouver la question dans le fichier Markdown.")
         return
@@ -37,7 +37,7 @@ def convert_question_to_sql(markdown):
     question_sql += f"('{question_id}', TRUE, '{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}', '{question_statement}', 45, {random.randrange(1,5)}, 1);\n\n"
 
     # Extraire les réponses du Markdown
-    answers = re.findall(r'- \[([x ])\] (.+)', markdown)
+    answers = re.findall(r'- \[([x ])\] (.+)', question)
 
     # Générer les requêtes SQL pour les réponses
     answers_sql = f"INSERT INTO public.answer (assertion, is_correct, question_id) VALUES\n"
