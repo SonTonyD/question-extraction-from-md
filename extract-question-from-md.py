@@ -2,13 +2,13 @@ import sys
 import re
 from datetime import datetime
 
-def check_string(string):
+def is_code_section_present(string):
     pattern = r'```'
     match = re.search(pattern, string)
     if match:
-        return False
-    else:
         return True
+    else:
+        return False
 
 def double_quotes(string):
     doubled_string = ""
@@ -65,7 +65,8 @@ def convert_to_sql(markdown_file, sql_file):
     questions = re.split(r'\n(?=####)', markdown.strip())
 
     for question in questions:
-        convert_question_to_sql(question)
+        if is_code_section_present(question) == False:
+            convert_question_to_sql(question)
 
     print(f"Le fichier SQL '{sql_file}' a été créé avec succès.")
 
