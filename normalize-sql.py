@@ -14,8 +14,8 @@ def normalize_sql(input_sql):
         # Extract table name
         table_name = re.search(r"INSERT INTO (.*?) ", statement).group(1)
 
-        # Remove INSERT INTO part and leading/trailing whitespaces
-        values = re.sub(r"INSERT INTO .*? VALUES", "", statement).strip()
+        # Remove INSERT INTO part, leading/trailing whitespaces and semi-colons
+        values = re.sub(r"INSERT INTO .*? VALUES", "", statement).strip().replace(';', '')
 
         # Append values to the corresponding table in the dictionary
         if table_name in normalized_statements:
