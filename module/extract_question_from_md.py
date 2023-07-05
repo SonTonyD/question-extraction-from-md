@@ -43,7 +43,7 @@ def convert_question_to_sql(question, theme_id, sql_file, question_id):
     for is_correct, assertion in answers:
         assertion = double_quotes(assertion)
         is_correct_str = 'TRUE' if is_correct == 'x' else 'FALSE'
-        answer_sql_part = "('{}', {}, '{}')".format(assertion, is_correct_str, question_id)
+        answer_sql_part = "('{}', {}, {})".format(assertion, is_correct_str, question_id)
         answers_sql_parts.append(answer_sql_part)
 
     answers_sql += ',\n'.join(answers_sql_parts) + ';'

@@ -1,8 +1,6 @@
 import os
 import re
-import sys
-import extract_question_from_md
-
+import random
 
 
 
@@ -22,7 +20,7 @@ def extract_md_path(directory_name):
     return 0
 
 def generate_new_theme(theme_id, theme_name, family_id, sql_file):
-    query = f"INSERT INTO public.theme (id, name, family_id) VALUES ({theme_id}, '{theme_name}', {family_id});"
+    query = f"INSERT INTO public.theme (id, name, family_id) VALUES ({theme_id}, '{theme_name}', {random.randrange(1,5)});"
 
     with open(sql_file, 'a') as file:
         file.write("\n" + query + "\n")

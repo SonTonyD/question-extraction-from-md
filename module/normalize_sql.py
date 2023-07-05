@@ -27,7 +27,7 @@ def normalize_sql(input_sql):
     # Combine the statements back to a single SQL script
     normalized_sql = ""
     for table_name_and_columns, values in normalized_statements.items():
-        normalized_sql += f"INSERT INTO {table_name_and_columns} VALUES\n{values};\n\n"
+        normalized_sql += f" {table_name_and_columns} VALUES\n{values};\n\n"
 
     return normalized_sql.strip()
 
