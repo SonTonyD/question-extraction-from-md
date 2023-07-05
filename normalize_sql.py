@@ -31,6 +31,7 @@ def normalize_sql(input_sql):
 
     return normalized_sql.strip()
 
+"""
 # Lecture du contenu du fichier data.sql
 with open(sys.argv[1], 'r') as file:
     data = file.read()
@@ -41,3 +42,4 @@ normalized_data = normalize_sql(data)
 # Écriture du contenu normalisé dans le fichier data_normalize.sql
 with open('data_normalize.sql', 'w') as file:
     file.write(normalized_data)
+"""

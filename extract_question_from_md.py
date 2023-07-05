@@ -21,11 +21,10 @@ def double_quotes(string):
             doubled_string += char
     return doubled_string
 
-def convert_question_to_sql(question):
+def convert_question_to_sql(question, theme_id, sql_file):
     # Extraire la question du Markdown
     question_match = re.search(r'#### (Q\d+)\. (.+)', question)
     if not question_match:
-        print("Erreur : Impossible de trouver la question dans le fichier Markdown.")
         return
 
     question_id = question_match.group(1)
@@ -35,7 +34,7 @@ def convert_question_to_sql(question):
 
     # Générer la requête SQL pour la question
     question_sql = f"INSERT INTO public.question (id, is_reported, last_update, statement, timer, skill_level_id, skill_theme_id) VALUES\n"
-    question_sql += f"('{question_id}', TRUE, '{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}', '{question_statement}', 45, {random.randrange(1,5)}, 1);\n\n"
+    question_sql += f"('{question_id}', TRUE, '{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}', '{question_statement}', 45, {random.randrange(1,5)}, {theme_id});\n\n"
 
     # Extraire les réponses du Markdown
     answers = re.findall(r'- \[([x ])\] (.+)', question)
@@ -59,7 +58,7 @@ def convert_question_to_sql(question):
         file.write("\n")
 
 
-def convert_to_sql(markdown_file, sql_file):
+def convert_to_sql(markdown_file, sql_file, theme_id):
     # Lire le contenu du fichier Markdown
     with open(markdown_file, 'r') as file:
         markdown = file.read()
@@ -68,15 +67,17 @@ def convert_to_sql(markdown_file, sql_file):
 
     for question in questions:
         if is_code_section_present(question) == False:
-            convert_question_to_sql(question)
-
-    print(f"Le fichier SQL '{sql_file}' a été créé avec succès.")
+            convert_question_to_sql(question, theme_id, sql_file)
 
 
+
+"""
 # Vérifier les arguments de ligne de commande
-if len(sys.argv) != 3:
-    print("Utilisation : python3 mon_script.py mon_markdown.md data.sql")
+if len(sys.argv) != 4:
+    print("Utilisation : python3 mon_script.py mon_markdown.md data.sql <theme_id>")
 else:
     markdown_file = sys.argv[1]
     sql_file = sys.argv[2]
-    convert_to_sql(markdown_file, sql_file)
+    theme_id = sys.argv[3]
+    convert_to_sql(markdown_file, sql_file, theme_id)
+"""
