@@ -34,7 +34,7 @@ def convert_question_to_sql(question, theme_id, sql_file):
 
     # Générer la requête SQL pour la question
     question_sql = f"INSERT INTO public.question (id, is_reported, last_update, statement, timer, skill_level_id, skill_theme_id) VALUES\n"
-    question_sql += f"('{question_id}', TRUE, '{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}', '{question_statement}', 45, {random.randrange(1,5)}, {theme_id});\n\n"
+    question_sql += f"({question_id}, TRUE, '{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}', '{question_statement}', 45, {random.randrange(1,5)}, {theme_id});\n\n"
 
     # Extraire les réponses du Markdown
     answers = re.findall(r'- \[([x ])\] (.+)', question)
