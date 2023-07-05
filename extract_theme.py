@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+import extract_question_from_md
 
 # Replace 'directory_name' and 'file_name' with your directory and file name
 directory_name = sys.argv[1]
