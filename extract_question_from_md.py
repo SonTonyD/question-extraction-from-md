@@ -21,14 +21,12 @@ def double_quotes(string):
             doubled_string += char
     return doubled_string
 
-def convert_question_to_sql(question, theme_id, sql_file):
+def convert_question_to_sql(question, theme_id, sql_file, question_id):
     # Extraire la question du Markdown
     question_match = re.search(r'#### (Q\d+)\. (.+)', question)
     if not question_match:
         return
 
-    question_id = question_match.group(1)
-    question_id = question_id[1:]
     question_statement = question_match.group(2).strip()
     question_statement = double_quotes(question_statement)
 
@@ -58,7 +56,7 @@ def convert_question_to_sql(question, theme_id, sql_file):
         file.write("\n")
 
 
-def convert_to_sql(markdown_file, sql_file, theme_id):
+def convert_to_sql(markdown_file, sql_file, theme_id, question_id):
     # Lire le contenu du fichier Markdown
     with open(markdown_file, 'r') as file:
         markdown = file.read()
@@ -67,7 +65,9 @@ def convert_to_sql(markdown_file, sql_file, theme_id):
 
     for question in questions:
         if is_code_section_present(question) == False:
-            convert_question_to_sql(question, theme_id, sql_file)
+            question_id += 1
+            convert_question_to_sql(question, theme_id, sql_file, question_id)
+    return question_id
 
 
 

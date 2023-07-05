@@ -6,6 +6,7 @@ import normalize_sql as nsq
 my_directory = 'linkedin-skill-assessments-quizzes-main'
 folders = os.listdir(my_directory)
 theme_id = 15
+question_id = 100
 tmp_sql_file = "tmp_data.sql" 
 
 for folder in folders:
@@ -16,7 +17,8 @@ for folder in folders:
     # Check if the item is a directory
     if os.path.isdir(item_path) and folder != ".github" and folder != "assets":
         markdown_file = eth.extract_md_path(folder)
-        eqfm.convert_to_sql(markdown_file, tmp_sql_file, theme_id)
+        new_question_id = eqfm.convert_to_sql(markdown_file, tmp_sql_file, theme_id, question_id)
+        question_id = new_question_id
         eth.generate_new_theme(folder, -1, tmp_sql_file)
 
 
