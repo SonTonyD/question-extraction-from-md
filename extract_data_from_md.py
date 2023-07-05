@@ -1,7 +1,7 @@
 import os
-import extract_question_from_md as eqfm
-import extract_theme as eth
-import normalize_sql as nsq
+import module.extract_question_from_md as eqfm
+import module.extract_theme as eth
+import module.normalize_sql as nsq
 
 my_directory = 'linkedin-skill-assessments-quizzes-main'
 folders = os.listdir(my_directory)
