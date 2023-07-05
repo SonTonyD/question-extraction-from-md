@@ -17,6 +17,7 @@ for folder in folders:
     if os.path.isdir(item_path) and folder != ".github" and folder != "assets":
         markdown_file = eth.extract_md_path(folder)
         eqfm.convert_to_sql(markdown_file, tmp_sql_file, theme_id)
+        eth.generate_new_theme(folder, -1, tmp_sql_file)
 
 
 # Lecture du contenu du fichier data.sql

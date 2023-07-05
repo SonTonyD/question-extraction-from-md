@@ -21,6 +21,13 @@ def extract_md_path(directory_name):
     print("incorect folder:", directory_name ,all_files)
     return 0
 
+def generate_new_theme(theme_name, family_id, sql_file):
+    query = f"INSERT INTO public.theme (name, family_id) VALUES ('{theme_name}', {family_id});"
+
+    with open(sql_file, 'a') as file:
+        file.write("\n" + query + "\n")
+
+
 """
 #Get args
 directory_name = sys.argv[1]
