@@ -25,16 +25,3 @@ def generate_new_theme(theme_id, theme_name, family_id, sql_file):
     with open(sql_file, 'a') as file:
         file.write("\n" + query + "\n")
 
-
-"""
-#Get args
-directory_name = sys.argv[1]
-
-theme = directory_name
-default_family_id = -1
-
-
-markdown_file = extract_theme(directory_name)
-
-print(markdown_file)
-"""

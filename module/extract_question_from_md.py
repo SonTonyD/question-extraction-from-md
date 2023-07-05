@@ -49,11 +49,13 @@ def convert_question_to_sql(question, theme_id, sql_file, question_id):
     answers_sql += ',\n'.join(answers_sql_parts) + ';'
 
     # Écrire le contenu SQL dans le fichier de sortie
-    with open(sql_file, 'a') as file:
-        file.write("\n")
-        file.write(question_sql)
-        file.write(answers_sql)
-        file.write("\n")
+
+    if len(answers) > 0:
+        with open(sql_file, 'a') as file:
+            file.write("\n")
+            file.write(question_sql)
+            file.write(answers_sql)
+            file.write("\n")
 
 
 def convert_to_sql(markdown_file, sql_file, theme_id, question_id):

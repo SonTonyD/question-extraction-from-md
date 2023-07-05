@@ -2,6 +2,7 @@ import os
 import module.extract_question_from_md as eqfm
 import module.extract_theme as eth
 import module.normalize_sql as nsq
+import module.generate_skill as gsk
 
 my_directory = 'linkedin-skill-assessments-quizzes-main'
 folders = os.listdir(my_directory)
@@ -19,6 +20,7 @@ for folder in folders:
 
         new_question_id = eqfm.convert_to_sql(markdown_file, tmp_sql_file, theme_id, question_id)
         eth.generate_new_theme(theme_id, folder, -1, tmp_sql_file)
+        gsk.generate_skill(theme_id, tmp_sql_file)
 
         question_id = new_question_id
         theme_id += 1
