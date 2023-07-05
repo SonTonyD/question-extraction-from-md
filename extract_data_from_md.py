@@ -10,16 +10,18 @@ question_id = 100
 tmp_sql_file = "tmp_data.sql" 
 
 for folder in folders:
-    theme_id += 1
     # Create the full item path by joining the directory path and the item name
     item_path = os.path.join(my_directory, folder)
     
     # Check if the item is a directory
     if os.path.isdir(item_path) and folder != ".github" and folder != "assets":
         markdown_file = eth.extract_md_path(folder)
+
         new_question_id = eqfm.convert_to_sql(markdown_file, tmp_sql_file, theme_id, question_id)
+        eth.generate_new_theme(theme_id, folder, -1, tmp_sql_file)
+
         question_id = new_question_id
-        eth.generate_new_theme(folder, -1, tmp_sql_file)
+        theme_id += 1
 
 
 # Lecture du contenu du fichier data.sql
