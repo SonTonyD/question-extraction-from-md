@@ -1,4 +1,4 @@
-INSERT INTO public.question VALUES
+INSERT INTO INSERT INTO public.question (id, is_reported, last_update, statement, timer, skill_level_id, skill_theme_id) VALUES
 ('1', TRUE, '2023-07-04 19:26:48', 'How filters are used in Spring Web?', 45, 4, 1),
 ('2', TRUE, '2023-07-04 19:26:48', 'How is a resource defined in the context of a REST service?', 45, 3, 1),
 ('3', TRUE, '2023-07-04 19:26:48', 'Which of these is a valid Advice annotation?', 45, 3, 1),
@@ -73,7 +73,7 @@ INSERT INTO public.question VALUES
 ('84', TRUE, '2023-07-04 19:26:48', 'Which are considered to be typical, common, cross-cutting concerns that would be a good fit for AOP? (Choose 3)', 45, 4, 1),
 ('87', TRUE, '2023-07-04 19:26:48', 'Which is not a core facet of Spring''s ecosystem?', 45, 2, 1);
 
-INSERT INTO public.answer VALUES
+INSERT INTO INSERT INTO public.answer (assertion, is_correct, question_id) VALUES
 ('Filters are called before a request hits the DispatcherServlet. They allow for interception-style, chained processing of web requests for security, timeouts, and other purposes.', TRUE, '1'),
 ('Filters are used with a checksum algorithm that will filter invalid bytes out of a byte stream request body and allow for processing of HTTP requests from the DispatcherRequestServlet.', FALSE, '1'),
 ('Filters are used with a checksum algorithm that will filter invalid bytes out of an octet stream a multipart upload and allow for chained processing of WebDispatcherServlet requests.', FALSE, '1'),

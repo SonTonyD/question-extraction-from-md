@@ -3,6 +3,7 @@ import re
 from datetime import datetime
 import random
 
+
 def is_code_section_present(string):
     pattern = r'```'
     match = re.search(pattern, string)
