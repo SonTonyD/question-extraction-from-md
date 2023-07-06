@@ -8,7 +8,7 @@ Ce script extrait les questions de quizs contenues dans un dossier spécifié et
 
 ## Utilisation
 
-1. Assurez-vous d'avoir le dossier contenant les quizs dans lequel vous souhaitez extraire les données. Le dossier doit contenir des sous-dossier contenant des fichier au format Markdown (.md) et doit suivre une structure spécifique pour que le script fonctionne correctement.
+1. Assurez-vous d'avoir le dossier contenant les quizs dans lequel vous souhaitez extraire les données. Le dossier doit contenir des sous-dossiers contenant des fichiers au format Markdown (.md) et doit suivre une structure spécifique pour que le script fonctionne correctement.
 
 2. Ouvrez une ligne de commande ou un terminal et exécutez la commande suivante :
 
