@@ -15,10 +15,9 @@ def extract_questions(question_directory, target_sql_file):
     tmp_sql_file = "tmp_data.sql" 
 
     for folder in folders:
-        # Create the full item path by joining the directory path and the item name
         item_path = os.path.join(question_directory, folder)
         
-        # Check if the item is a directory
+        # Opération d'extraction des questions
         if os.path.isdir(item_path) and folder != ".github" and folder != "assets":
             markdown_file = eth.extract_markdown_file_path(folder)
 
@@ -38,6 +37,7 @@ def extract_questions(question_directory, target_sql_file):
     with open(target_sql_file, 'w') as file:
         file.write(normalized_data)
 
+    # Suppression du fichier temporaire
     os.remove(tmp_sql_file) 
 
 

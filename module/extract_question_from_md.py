@@ -49,7 +49,6 @@ def convert_question_to_sql(question, theme_id, sql_file, question_id):
     answers_sql += ',\n'.join(answers_sql_parts) + ';'
 
     # Écrire le contenu SQL dans le fichier de sortie
-
     if len(answers) > 0:
         with open(sql_file, 'a') as file:
             file.write("\n")
@@ -59,7 +58,6 @@ def convert_question_to_sql(question, theme_id, sql_file, question_id):
 
 
 def convert_to_sql(markdown_file, sql_file, theme_id, question_id):
-    # Lire le contenu du fichier Markdown
     with open(markdown_file, 'r') as file:
         markdown = file.read()
 
