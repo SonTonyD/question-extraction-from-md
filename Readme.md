@@ -26,4 +26,8 @@ Ce script extrait les questions de quizs contenues dans un dossier spécifié et
 
 Voici un exemple d'utilisation du script pour extraire les questions de quizs à partir d'un dossier "linkedin-skill-assessments-quizzes-main" et générer un fichier SQL nommé "data.sql" :
 
+```bash
+python3 extract_data_from_md.py linkedin-skill-assessments-quizzes-main data.sql
+```
+
 **Auteur :** Dinh Son-Tony, Stagiaire Smile Lyon
