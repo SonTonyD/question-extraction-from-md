@@ -4,7 +4,7 @@ import random
 
 
 
-def extract_md_path(directory_name):
+def extract_markdown_file_path(directory_name):
 
     all_files = os.listdir(f"linkedin-skill-assessments-quizzes-main/{directory_name}")
 
