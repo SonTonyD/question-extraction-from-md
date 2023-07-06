@@ -70,16 +70,3 @@ def convert_to_sql(markdown_file, sql_file, theme_id, question_id):
             question_id += 1
             convert_question_to_sql(question, theme_id, sql_file, question_id)
     return question_id
-
-
-
-"""
-# Vérifier les arguments de ligne de commande
-if len(sys.argv) != 4:
-    print("Utilisation : python3 mon_script.py mon_markdown.md data.sql <theme_id>")
-else:
-    markdown_file = sys.argv[1]
-    sql_file = sys.argv[2]
-    theme_id = sys.argv[3]
-    convert_to_sql(markdown_file, sql_file, theme_id)
-"""

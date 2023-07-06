@@ -30,16 +30,3 @@ def normalize_sql(input_sql):
         normalized_sql += f" {table_name_and_columns} VALUES\n{values};\n\n"
 
     return normalized_sql.strip()
-
-"""
-# Lecture du contenu du fichier data.sql
-with open(sys.argv[1], 'r') as file:
-    data = file.read()
-
-# Normalisation du contenu
-normalized_data = normalize_sql(data)
-
-# Écriture du contenu normalisé dans le fichier data_normalize.sql
-with open('data_normalize.sql', 'w') as file:
-    file.write(normalized_data)
-"""
